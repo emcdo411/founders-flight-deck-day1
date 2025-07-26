@@ -1,1 +1,14 @@
+USE FlightDeckDB;
+GO
+
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='FintechData' AND xtype='U')
+BEGIN
+    CREATE TABLE FintechData (
+        Date DATE,
+        Sector VARCHAR(50),
+        FairnessScore FLOAT,
+        RegulatoryScore FLOAT,
+        PRIMARY KEY (Date, Sector)
+    );
+END;
 
